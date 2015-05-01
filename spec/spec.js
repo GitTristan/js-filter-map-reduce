@@ -85,3 +85,21 @@ describe('#reduce', function() {
     expect(yourCode.reduce([1,2,3], function(sum, inc) { return sum + inc; })).toBe(6);
   });
 });
+
+describe("map", function() {
+  it('behaves like Array#map and creates a new array from the original', function() {
+    expect(yourCode.map([1,2,3], function(elem) { return elem + 1; })).toBe([2,3,4]);
+  });
+
+  it('behaves like Array#map and does not alter the original array', function() {
+    var input = [1,2,3]
+    yourCode.map(input, function(elem) { return elem + 1; });
+    expect(input.toBe([1,2,3]));
+  });
+})
+
+describe("sumOfEvenAscii", function() {
+  it('maps a string to an array of ascii values, filters for the even values, and reduces the filtered results to the sum of each number', function() {
+    expect(yourCode.sumOfEvenAscii("hello")).toBe(320);
+  });
+})

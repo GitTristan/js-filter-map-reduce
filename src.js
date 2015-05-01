@@ -21,8 +21,18 @@ module.exports = {
 
   partition: function(array, condition) {
     // use `reduce` to write this method
+  },
+
+  partition: sumOfEvenAscii(string) {
+    // split the string into an array
+    // map the array to ascii values, using charCodeAt()
+    // filter the array to contain only even numbers
+    // reduce that array into an accumulated sum
   }
 
   // You will need to add the reduce method yourself, obviously
   // your implementation should not call Array#reduce.
+
+  // You will need to add the map method yourself, obviously
+  // your implementation should not call Array#map.
 };
