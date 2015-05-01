@@ -1,6 +1,6 @@
 module.exports = {
   compact: function(array) {
-    // use `filter` to write this method
+
   },
 
   all: function(array, condition) {
@@ -23,7 +23,7 @@ module.exports = {
     // use `reduce` to write this method
   },
 
-  partition: sumOfEvenAscii(string) {
+  sumOfEvenAscii: function(string) {
     // split the string into an array
     // map the array to ascii values, using charCodeAt()
     // filter the array to contain only even numbers
