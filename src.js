@@ -1,6 +1,6 @@
 module.exports = {
   compact: function(array) {
-
+    // use 'filter' to write this method
   },
 
   all: function(array, condition) {
