@@ -1,6 +1,8 @@
 module.exports = {
   compact: function(array) {
-    // use 'filter' to write this method
+    return array.filter(function(elem) {
+      return (elem !== undefined);
+    })
   },
 
   all: function(array, condition) {

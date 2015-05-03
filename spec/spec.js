@@ -16,7 +16,7 @@ describe('#compact', function() {
   });
 });
 
-describe('#all', function() {
+xdescribe('#all', function() {
   it('returns false if any  element in the provided array does not matches the condition given by the function parameter', function() {
     var input = [1,3,5,6,7];
     expect(yourCode.all(input, isEven)).toBe(false);
@@ -28,7 +28,7 @@ describe('#all', function() {
   });
 });
 
-describe('#allRecursive', function() {
+xdescribe('#allRecursive', function() {
   it('returns false if any  element in the provided array does not matches the condition given by the function parameter', function() {
     var input = [1,3,5,6,7];
     expect(yourCode.allRecursive(input, isEven)).toBe(false);
@@ -40,7 +40,7 @@ describe('#allRecursive', function() {
   });
 });
 
-describe('#any', function() {
+xdescribe('#any', function() {
   it('returns true if any element in the provided array matches the condition given by the function parameter', function() {
     var input = [1,3,5,6,7];
     expect(yourCode.any(input, isEven)).toBe(true);
@@ -52,7 +52,7 @@ describe('#any', function() {
   });
 });
 
-describe('#anyRecursive', function() {
+xdescribe('#anyRecursive', function() {
   it('returns true if any element in the provided array matches the condition given by the function parameter', function() {
     var input = [1,3,5,6,7];
     expect(yourCode.anyRecursive(input, isEven)).toBe(true);
@@ -64,7 +64,7 @@ describe('#anyRecursive', function() {
   });
 });
 
-describe('#partition', function() {
+xdescribe('#partition', function() {
   it('creates a new array whose first element is an array containing all positive matches for the provided comparison function and whose second element is an array containing all negative matches', function() {
     var input = [1,2,3,4,5,6];
     expect(yourCode.partition(input, isEven)).toEqual([[2,4,6], [1,3,5]]);
@@ -76,7 +76,7 @@ describe('#partition', function() {
   });
 });
 
-describe('#reduce', function() {
+xdescribe('#reduce', function() {
   it('behaves like Array#reduce but accepts the array as the first argument', function() {
     expect(yourCode.reduce([1,2,3], function(sum, inc) { return sum + inc; }, 100)).toBe(106);
   });
@@ -86,19 +86,19 @@ describe('#reduce', function() {
   });
 });
 
-describe("map", function() {
+xdescribe("map", function() {
   it('behaves like Array#map and creates a new array from the original', function() {
-    expect(yourCode.map([1,2,3], function(elem) { return elem + 1; })).toBe([2,3,4]);
+    xpect(yourCode.map([1,2,3], function(elem) { return elem + 1; })).toEqual([2,3,4]);
   });
 
   it('behaves like Array#map and does not alter the original array', function() {
     var input = [1,2,3]
     yourCode.map(input, function(elem) { return elem + 1; });
-    expect(input.toBe([1,2,3]));
+    expect(input).toEqual([1,2,3]);
   });
 })
 
-describe("sumOfEvenAscii", function() {
+xdescribe("sumOfEvenAscii", function() {
   it('maps a string to an array of ascii values, filters for the even values, and reduces the filtered results to the sum of each number', function() {
     expect(yourCode.sumOfEvenAscii("hello")).toBe(320);
   });
