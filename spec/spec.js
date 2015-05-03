@@ -28,7 +28,7 @@ describe('#all', function() {
   });
 });
 
-xdescribe('#allRecursive', function() {
+describe('#allRecursive', function() {
   it('returns false if any  element in the provided array does not matches the condition given by the function parameter', function() {
     var input = [1,3,5,6,7];
     expect(yourCode.allRecursive(input, isEven)).toBe(false);

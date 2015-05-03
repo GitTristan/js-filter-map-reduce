@@ -11,8 +11,12 @@ module.exports = {
     })
   },
 
-  allRecursive: function(array, condition) {
-    // write a recursive version of the `all` method
+  allRecursive: function all(array, condition) {
+    if (array.length === 1 && condition(array[0]))
+      return true;
+    if (!condition(array[0]))
+      return false;
+    return this.allRecursive(array.slice(1,array.length), condition);
   },
 
   any: function(array, condition) {
