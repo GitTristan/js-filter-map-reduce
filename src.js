@@ -5,13 +5,13 @@ module.exports = {
     })
   },
 
-  all: function any(array, condition) {
+  all: function(array, condition) {
     return array.reduce(function(pval,cval) {
       return pval && condition(cval)
     })
   },
 
-  allRecursive: function all(array, condition) {
+  allRecursive: function(array, condition) {
     if (array.length === 1 && condition(array[0]))
       return true;
     if (!condition(array[0]))
@@ -26,7 +26,8 @@ module.exports = {
   },
 
   anyRecursive: function(array, condition) {
-    // write a recursive version of the `any` method
+    if (array.length < 1 ) {return false;}
+    return condition(array[0]) || this.anyRecursive(array.slice(1, array.length), condition);
   },
 
   partition: function(array, condition) {
