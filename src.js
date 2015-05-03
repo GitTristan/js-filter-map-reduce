@@ -20,7 +20,9 @@ module.exports = {
   },
 
   any: function(array, condition) {
-    // use `reduce` to write this method
+    return array.reduce(function(pval,cval) {
+      return pval || condition(cval)
+    }, false);
   },
 
   anyRecursive: function(array, condition) {

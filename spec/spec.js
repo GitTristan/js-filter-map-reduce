@@ -40,7 +40,7 @@ describe('#allRecursive', function() {
   });
 });
 
-xdescribe('#any', function() {
+describe('#any', function() {
   it('returns true if any element in the provided array matches the condition given by the function parameter', function() {
     var input = [1,3,5,6,7];
     expect(yourCode.any(input, isEven)).toBe(true);
