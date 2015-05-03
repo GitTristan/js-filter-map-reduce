@@ -5,8 +5,10 @@ module.exports = {
     })
   },
 
-  all: function(array, condition) {
-    // use `reduce` to write this method
+  all: function any(array, condition) {
+    return array.reduce(function(pval,cval) {
+      return pval && condition(cval)
+    })
   },
 
   allRecursive: function(array, condition) {
