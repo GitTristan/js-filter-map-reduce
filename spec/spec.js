@@ -64,7 +64,7 @@ describe('#anyRecursive', function() {
   });
 });
 
-xdescribe('#partition', function() {
+describe('#partition', function() {
   it('creates a new array whose first element is an array containing all positive matches for the provided comparison function and whose second element is an array containing all negative matches', function() {
     var input = [1,2,3,4,5,6];
     expect(yourCode.partition(input, isEven)).toEqual([[2,4,6], [1,3,5]]);

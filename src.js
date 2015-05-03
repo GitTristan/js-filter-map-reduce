@@ -31,8 +31,17 @@ module.exports = {
   },
 
   partition: function(array, condition) {
-    // use `reduce` to write this method
+    trueArray = [];
+    falseArray = [];
+    array.forEach(function(elem){
+      if(condition(elem))
+        trueArray.push(elem);
+      else
+        falseArray.push(elem);
+    });
+    return [trueArray, falseArray];
   },
+
 
   sumOfEvenAscii: function(string) {
     // split the string into an array
