@@ -44,15 +44,36 @@ module.exports = {
 
 
   sumOfEvenAscii: function(string) {
-    // split the string into an array
-    // map the array to ascii values, using charCodeAt()
-    // filter the array to contain only even numbers
-    // reduce that array into an accumulated sum
+    var array = string.split([]);
+    var newArray = array.map(function(elem) {
+      return (elem.charCodeAt(0));
+    });
+    var evenArray = newArray.filter(function(x) {
+      return (x%2 === 0);
+    });
+    var result = evenArray.reduce(function (y, z) {
+      return y + z;
+    });
+    return result;
+  },
+
+
+  reduce: function(array, fn, initVal) {
+    var i = 0;
+    if (initVal === undefined) { initVal = array[0], i = 1; }
+    for (i; i < array.length; i++) {
+    var x = fn(initVal, array[i]);
+      initVal = initVal + array[i];
+    }
+    return initVal;
+  },
+
+  map: function(array, fn) {
+    var result = [];
+    for (var i=0; i < array.length; i++) {
+      result.push(fn(array[i]));
+    };
+    return result;
   }
 
-  // You will need to add the reduce method yourself, obviously
-  // your implementation should not call Array#reduce.
-
-  // You will need to add the map method yourself, obviously
-  // your implementation should not call Array#map.
 };

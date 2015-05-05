@@ -76,7 +76,7 @@ describe('#partition', function() {
   });
 });
 
-xdescribe('#reduce', function() {
+describe('#reduce', function() {
   it('behaves like Array#reduce but accepts the array as the first argument', function() {
     expect(yourCode.reduce([1,2,3], function(sum, inc) { return sum + inc; }, 100)).toBe(106);
   });
@@ -86,9 +86,9 @@ xdescribe('#reduce', function() {
   });
 });
 
-xdescribe("map", function() {
+describe("map", function() {
   it('behaves like Array#map and creates a new array from the original', function() {
-    xpect(yourCode.map([1,2,3], function(elem) { return elem + 1; })).toEqual([2,3,4]);
+    expect(yourCode.map([1,2,3], function(elem) { return elem + 1; })).toEqual([2,3,4]);
   });
 
   it('behaves like Array#map and does not alter the original array', function() {
@@ -98,7 +98,7 @@ xdescribe("map", function() {
   });
 })
 
-xdescribe("sumOfEvenAscii", function() {
+describe("sumOfEvenAscii", function() {
   it('maps a string to an array of ascii values, filters for the even values, and reduces the filtered results to the sum of each number', function() {
     expect(yourCode.sumOfEvenAscii("hello")).toBe(320);
   });
