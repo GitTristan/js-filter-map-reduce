@@ -7,7 +7,7 @@ module.exports = {
 
   all: function(array, condition) {
     return array.reduce(function(pval,cval) {
-      return pval && condition(cval)
+      return pval && condition(cval);
     }, true);
   },
 
@@ -18,26 +18,35 @@ module.exports = {
 
   any: function(array, condition) {
     return array.reduce(function(pval,cval) {
-      return pval || condition(cval)
+      return pval || condition(cval);
     }, false);
   },
 
   anyRecursive: function(array, condition) {
-    if (array.length < 1 ) {return false;}
-    return condition(array[0]) || this.anyRecursive(array.slice(1, array.length), condition);
+    if (array.length === 1 ) return false;
+    return condition(array[0]) || this.anyRecursive(array.slice(1), condition);
   },
 
+
   partition: function(array, condition) {
-    trueArray = [];
-    falseArray = [];
-    array.forEach(function(elem){
-      if(condition(elem))
-        trueArray.push(elem);
-      else
-        falseArray.push(elem);
-    });
-    return [trueArray, falseArray];
+    return array.reduce(function(out, input) {
+      condition(input) ? out[0].push(input) : out[1].push(input);
+      return out;
+    }, [[], []]);
   },
+
+  // Non-inline solution:
+
+  // partition: function(array, condition) {
+  //   return array.reduce(function(out, input){
+  //     if(condition(input)){
+  //       out[0].push(input);
+  //     } else{
+  //       out[1].push(input);
+  //     }
+  //     return out;
+  //   }, [[], []]);
+  // },
 
 
   sumOfEvenAscii: function(string) {
