@@ -27,7 +27,6 @@ module.exports = {
     return condition(array[0]) || this.anyRecursive(array.slice(1), condition);
   },
 
-
   partition: function(array, condition) {
     return array.reduce(function(out, input) {
       condition(input) ? out[0].push(input) : out[1].push(input);
@@ -50,36 +49,44 @@ module.exports = {
 
 
   sumOfEvenAscii: function(string) {
-    var array = string.split([]);
-    var newArray = array.map(function(elem) {
-      return (elem.charCodeAt(0));
-    });
-    var evenArray = newArray.filter(function(x) {
-      return (x%2 === 0);
-    });
-    var result = evenArray.reduce(function (y, z) {
-      return y + z;
-    });
-    return result;
+    function getCharCode(string) { return string.charCodeAt(); }
+    function isEven(number) { return number % 2 == 0; }
+    function sum(total, incr) { return total + incr; }
+
+    return string.split("").map(getCharCode).filter(isEven).reduce(sum);
   },
 
+  // sumOfEvenAscii: function(string) {
+  //   return string.split('').map(function(elem) {
+  //     return elem.charCodeAt();
+  //   }).filter(function(charCodes) {
+  //     return charCodes % 2 == 0;
+  //   }).reduce(function(sum, incr) {
+  //     return sum + incr;
+  //   });
 
-  reduce: function(array, fn, initVal) {
+  reduce: function(array, combine, initialValue) {
     var i = 0;
-    if (initVal === undefined) { initVal = array[0], i = 1; }
-    for (i; i < array.length; i++) {
-    var x = fn(initVal, array[i]);
-      initVal = initVal + array[i];
+
+    if (initialValue === undefined) {
+      initialValue = array[0];
+      i += 1;
     }
-    return initVal;
+
+    var output = initialValue;
+
+    for(i; i < array.length; i++) {
+      output = combine(output, array[i]);
+    }
+    return output;
   },
 
-  map: function(array, fn) {
+  map: function(array, transformation) {
     var result = [];
+
     for (var i=0; i < array.length; i++) {
-      result.push(fn(array[i]));
+      result.push(transformation(array[i]));
     };
     return result;
   }
-
 };
