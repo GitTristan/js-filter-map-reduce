@@ -1,22 +1,19 @@
 module.exports = {
   compact: function(array) {
     return array.filter(function(elem) {
-      return (elem !== undefined);
-    })
+      return elem !== undefined;
+    });
   },
 
   all: function(array, condition) {
     return array.reduce(function(pval,cval) {
       return pval && condition(cval)
-    })
+    }, true);
   },
 
   allRecursive: function(array, condition) {
-    if (array.length === 1 && condition(array[0]))
-      return true;
-    if (!condition(array[0]))
-      return false;
-    return this.allRecursive(array.slice(1,array.length), condition);
+    if (array.length === 0) return true;
+      return condition(array[0]) && this.allRecursive(array.slice(1), condition);
   },
 
   any: function(array, condition) {
